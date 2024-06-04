@@ -1,0 +1,478 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  transition: background 0.2s linear;
+
+  & header button {
+    border: none;
+    background: none;
+  }
+}
+
+body.dark {
+  background-color: hsl(0, 0%, 20%);
+  color: #fff;
+
+  & header button {
+    background: none;
+    color: #fff;
+  }
+
+  & .checkbox-label {
+    background-color: #fff;
+  }
+
+  & .ball {
+    background-color: #111;
+  }
+
+  & table td,
+  table th {
+    border-color: #fff;
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem 0;
+
+  & div {
+    display: flex;
+    gap: 2rem;
+  }
+}
+
+a {
+  color: inherit;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-label {
+  background-color: #111;
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkbox-label .ball {
+  background-color: #fff;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(24px);
+}
+
+.top {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 70vh;
+  background-color: #f58732;
+  color: white;
+  & .top-left {
+    margin: 5rem;
+    width: 30rem;
+  }
+
+  & .top-right img {
+    margin: 5rem;
+    width: 40rem;
+  }
+}
+
+@media (max-width: 1300px) {
+  .top {
+    flex-direction: column;
+    & .top-left {
+      margin: 2rem;
+      width: 80%;
+    }
+
+    & .top-right img {
+      margin: 2rem;
+      width: 100%;
+    }
+  }
+}
+
+.portfolio {
+  margin: 2rem;
+  & h1 {
+    text-align: center;
+    margin: 2rem;
+  }
+
+  .portfolio--cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 1rem;
+    overflow: hidden;
+    margin: 2rem;
+
+    & .card {
+      position: relative;
+      overflow: hidden;
+      height: 14rem;
+      width: 30rem;
+
+      & h2 {
+        z-index: 1;
+        background-color: #f58732;
+        border-radius: 1rem;
+        padding: 0.5rem;
+        width: 60%;
+      }
+
+      & img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+        width: 100%;
+        z-index: -1;
+      }
+    }
+
+    & .card:hover img {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.portfolioItem {
+  margin-top: 5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & .img {
+    width: 70%;
+    height: 40rem;
+    overflow: hidden;
+
+    & img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  & .listings div {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem;
+
+    & .left {
+      width: 40%;
+      text-align: left;
+      margin-left: 4rem;
+    }
+
+    & .right {
+      gap: 1rem;
+      width: 40%;
+      display: flex;
+      flex-wrap: wrap;
+      text-align: left;
+
+      & a {
+        background-color: #f58732;
+        border-radius: 1rem;
+        padding: 1rem;
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.portfolios {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem;
+
+  & .card {
+    overflow: hidden;
+    width: 30rem;
+    height: 30rem;
+
+    & img {
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+}
+
+.portfolio--filter {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem;
+
+  & button {
+    background-color: #f58732;
+    border-radius: 1rem;
+    padding: 1rem;
+    color: white;
+    border: none;
+  }
+}
+
+.blog {
+  & h1 {
+    text-align: center;
+    margin: 2rem;
+  }
+  & .blog--cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 1rem;
+    margin: 2rem;
+
+    & .card {
+      background-color: hsla(26, 91%, 58%, 0.05);
+      border-radius: 3rem;
+      padding: 0 1rem;
+      position: relative;
+      overflow: hidden;
+      height: 16rem;
+      width: 30rem;
+
+      & h2 {
+        padding: 0.5rem;
+      }
+      & p {
+        padding: 0.5rem;
+      }
+    }
+  }
+}
+
+.blogs {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem;
+
+  & .card {
+    background-color: hsla(26, 91%, 58%, 0.05);
+    border-radius: 3rem;
+    width: 30rem;
+    margin: 6rem;
+  }
+}
+
+.learn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem auto;
+  width: 80%;
+
+  & .learn--collection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 5rem;
+
+    & .info {
+      margin: 2rem;
+      width: 60%;
+
+      & p {
+        padding-bottom: 1rem;
+      }
+
+      & a {
+        background-color: #f58732;
+        border-radius: 1rem;
+        padding: 1rem;
+        color: white;
+        text-decoration: none;
+      }
+    }
+
+    & .suggestion {
+      width: 40%;
+    }
+
+    & .quote {
+      padding-top: 2.5rem;
+      width: 40%;
+
+      & .quote--text {
+        font-style: italic;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  & div {
+    margin: 2rem;
+    width: 30rem;
+  }
+}
+
+.curriculum {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & table {
+    width: 60%;
+    border-collapse: collapse;
+
+    & th,
+    td {
+      border: 1px solid black;
+      padding: 0.5rem;
+      text-align-last: left;
+    }
+
+    & th {
+      background-color: #f58732;
+      color: white;
+    }
+
+    & .table--space {
+      height: 2rem;
+    }
+  }
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem;
+
+  & .card {
+    overflow: hidden;
+    display: inline-block;
+    width: 30rem;
+    height: 30rem;
+
+    & img {
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+}
+
+.team {
+  & h1 {
+    text-align: center;
+    margin: 2rem;
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem;
+
+  & .team--cards {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    & .card {
+      background-color: hsla(26, 91%, 58%, 0.05);
+      border-radius: 3rem;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      align-items: center;
+      padding: 0 2rem;
+      width: 25rem;
+      height: 30rem;
+
+      & img {
+        object-fit: cover;
+        width: 60%;
+      }
+    }
+  }
+}
+
+.services {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem;
+
+  & h2 {
+    border-top: 0.1875rem solid black;
+    width: 40%;
+  }
+}
+
+.services--cards {
+  & h1 {
+    text-align: center;
+    margin: 2rem;
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  & .services {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    & a {
+      display: inline-block;
+      width: 22rem;
+      background-color: #f58732;
+      padding: 0.1rem 1rem;
+      border-radius: 1rem;
+
+      h2 {
+        width: 100%;
+        border: none;
+      }
+    }
+  }
+}
