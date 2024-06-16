@@ -5,42 +5,38 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import { routes } from "./routes/routes";
-import { Home, Portfolio, Detail } from "./pages";
+import { Home, Portfolio } from "./pages";
 import "./App.css";
 import Root from "./layouts/Root";
-import { ThemeProvider } from "./context/ThemeContext";
+import { useQuery } from "@apollo/client";
+import { GET_PORTFOLIOS } from "./graphql/queries";
 
 function App() {
+  let {loading, error, data} = useQuery(GET_PORTFOLIOS);
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :{error}</p>;
+  data = data.projects;
+  const homeData = data.slice(0, 3);
+
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
         <Route path="/" element={<Root />}>
-          <Route path={routes.home.path} element={<Home />} />
+          <Route path={routes.home.path} element={<Home portfolios={homeData} />} />
           <Route
             path={routes.portfolio.path}
             element={
               <Portfolio
-              // portfolio={{ dataPortfolio }}
+              portfolios={ data }
               />
             }
           />
-          {/* <Route
-            path="/:type/:title"
-            element={
-              <Detail
-                portfolio={{ dataPortfolio, setSorting }}
-                blog={{ dataBlog }}
-              />
-            }
-          /> */}
         </Route>
       </>
     )
   );
   return (
-    <ThemeProvider>
       <RouterProvider router={router} />
-    </ThemeProvider>
   );
 }
 

@@ -1,18 +1,46 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { Helmet } from "react-helmet";
 import Card from "../components/Card";
 
-export default function Home() {
-  useEffect(() => {
-    document.title = "Tyson Wilssens";
-  }, []);
+export default function Home({ portfolios }) {
   return (
     <>
-      <section className="top">
-        <div className="top-left">
+    <Helmet>
+      <title>Tyson Wilssens</title>
+      <meta
+        name="description"
+        content="Ik ben Tyson Wilssens, een gemotiveerde back-end developer met ervaring die ik heb opgedaan in de richting graduaat programmeren te artevelde hogeschool"
+      />
+    </Helmet>
+      <section className="intro">
+        <div>
           <h1>Tyson Wilssens</h1>
-          <p>text</p>
+          <p>Ik ben Tyson Wilssens, een gemotiveerde back-end developer met ervaring die ik heb opgedaan in de richting graduaat programmeren te artevelde hogeschool</p>
         </div>
-        <div className="top-right"></div>
+      </section>
+      <section className="skills">
+        <h2>Skills</h2>
+        <ul>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>PHP</li>
+          <li>Git</li>
+          <li>Node.js</li>
+          <li>React</li>
+          <li>Express</li>
+          <li>HyGraph</li>
+          <li>MySQL</li>
+          <li>c#</li>
+          <li>lua</li>
+        </ul>
+      </section>
+      <section className="project">
+        <h2>Projects</h2>
+        <p>als je meerdere projecten van mij wilt zien klik dan <a href="/portfolios">hier</a></p>
+    <div className="projects">
+        <Card portfolios={portfolios}/>
+    </div>
       </section>
     </>
   );
