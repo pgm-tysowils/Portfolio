@@ -11,7 +11,7 @@ export default function Card({ portfolios }) {
         <img className="img" src={portfolio.img.url} alt="images of project" />
         <div className="links">
           <a href={portfolio.gitRepo}>Github</a>
-          <a href={portfolio.render}><img src="render.jpg" alt="images of render" /></a>
+          <a target="_blank" href={portfolio.render}><img src="render.jpg" alt="images of render" /></a>
         </div>
       </div>
     ))}
