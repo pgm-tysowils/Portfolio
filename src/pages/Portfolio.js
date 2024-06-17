@@ -3,7 +3,6 @@ import Card from "../components/Card";
 import { Helmet } from "react-helmet";
 
 export default function Portfolio({ portfolios}) {
-  console.log(portfolios.data);
   
   return (
     <>
